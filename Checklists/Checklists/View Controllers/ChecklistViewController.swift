@@ -66,16 +66,16 @@ ItemDetailViewControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Add placeholder item data
-        for list in lists{
-            let item = ChecklistItems()
-            item.text = "Item for \(list.name))"
-            list.items.append(item)
-        }
+//        //Add placeholder item data
+//        for list in lists{
+//            let item = ChecklistItems()
+//            item.text = "Item for \(list.name))"
+//            list.items.append(item)
+        
+//        }
         
         //Enable large titles
         navigationController?.navigationBar.prefersLargeTitles = true
-
         title = checklist.name
         navigationItem.largeTitleDisplayMode = .never
     }
