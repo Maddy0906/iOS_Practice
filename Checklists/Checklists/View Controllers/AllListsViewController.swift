@@ -37,10 +37,10 @@ class AllListsViewController: UITableViewController,
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -85,8 +85,7 @@ class AllListsViewController: UITableViewController,
     override func prepare(for segue: UIStoryboardSegue,
                           sender: Any?) {
         if segue.identifier == "ShowChecklist" {
-            let controller = segue.destination
-                as! ChecklistViewController
+            let controller = segue.destination as! ChecklistViewController
             controller.checklist = sender as! Checklist
         } else if segue.identifier == "AddChecklist" {
             let controller = segue.destination
@@ -103,8 +102,8 @@ class AllListsViewController: UITableViewController,
     func listDetailViewController(
         _ controller: ListDetailViewController,
         didFinishAdding checklist: Checklist) {
-        let newRowIndex = lists.count
-        lists.append(checklist)
+        let newRowIndex = dataModel.lists.count
+        dataModel.lists.append(checklist)
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
@@ -113,12 +112,13 @@ class AllListsViewController: UITableViewController,
     func listDetailViewController(
         _ controller: ListDetailViewController,
         didFinishEditing checklist: Checklist) {
-        if let index = lists.index(of: checklist) {
+        if let index = dataModel.lists.index(of: checklist) {
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath) {
                 cell.textLabel!.text = checklist.name
             }
         }
+    }
     
     override func tableView(
         _ tableView: UITableView,
@@ -142,22 +142,19 @@ class AllListsViewController: UITableViewController,
     }
     
     //show the last open list
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.delegate = self
-        let index = dataModel.indexOfSelectedChecklist // change this
-        if index != -1 {
-            let checklist = dataModel.lists[index]
-            performSegue(withIdentifier: "ShowChecklist",
-                         sender: checklist)
-        }
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        navigationController?.delegate = self
+//        let index = dataModel.indexOfSelectedChecklist // change this
+////        print(index)
+//        if index != -1 {
+//            let checklist = dataModel.lists[index]
+//            performSegue(withIdentifier: "ShowChecklist",
+//                         sender: checklist)
+//        }
+//    }
 
 }
     
-    
-
-    
-
     
 

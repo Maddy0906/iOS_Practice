@@ -66,6 +66,7 @@
 		A73CD3C72005CF0700C6FAE3 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
+				A73CD3D42005CF0700C6FAE3 /* Info.plist */,
 				A73CD3C82005CF0700C6FAE3 /* AppDelegate.swift */,
 				A795C5C02011A79A000785B9 /* Data Models */,
 				A795C5C32011A7F9000785B9 /* Resources */,
@@ -99,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				A73CD3CF2005CF0700C6FAE3 /* Assets.xcassets */,
-				A73CD3D42005CF0700C6FAE3 /* Info.plist */,
 				A73CD3D12005CF0700C6FAE3 /* LaunchScreen.storyboard */,
 				A73CD3CC2005CF0700C6FAE3 /* Main.storyboard */,
 			);
